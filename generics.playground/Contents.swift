@@ -1,38 +1,19 @@
 // Generics
 
-func swapInts(_ a: inout Int, _ b: inout Int) {
-    let tempA = a
-    a = b
-    b = tempA
-}
-
 var d = 10
 var e = 12
-
-swapInts(&d, &e)
-
-d
-e
 
 var g = "Thomas"
 var h = "Dimnet"
 
-// swapInts(&g, &h) -> will not work because we attempt to work with integers
-
-func swapStrings(_ a: inout String, _ b: inout String) {
+// Writing Generic Functions
+func swapValues<T>(_ a: inout T, _ b: inout T) { // T is a placeholder and tells the compiler this is a generic function
     let tempA = a
     a = b
     b = tempA
 }
 
-swapStrings(&g, &h)
+swapValues(&d, &e)
+swapValues(&g, &h)
 
-g
-h
-
-// Below, this could be a good idea but we lose the type safety of Swift.
-func swapAny(_ a: inout Any, _ b: inout Any) {
-    let tempA = a
-    a = b
-    b = tempA
-}
+// swapValues(&d, &g) -> this will fail
