@@ -36,3 +36,70 @@ func intToString(_ a: Int) -> String {
 }
 
 transform(arg: 12, operation: intToString)
+
+
+// Protocol based type constraints
+
+func findKey<Key, Value: Equatable>(for value: Value, in dictionary: Dictionary<Key, Value>) -> Key? {
+    for (iterKey, iterValue) in dictionary {
+        if iterValue == value {
+            return iterKey
+        }
+    }
+    return nil
+}
+
+// First example with String value
+let airportCodes = ["CDG": "Charles de Gaulle", "HKG": "Hong Kong International Airport"]
+findKey(for: "Charles de Gaulle", in: airportCodes)
+
+
+// Second example with a struct
+enum Snack {
+    case gum
+    case cookie
+}
+
+struct Item {
+    let price: Int
+    let quantity: Int
+}
+
+extension Item: Equatable {
+    static func ==(lhs: Item, rhs: Item) -> Bool {
+        return lhs.price == rhs.price && lhs.quantity == rhs.quantity
+    }
+}
+
+let inventory: [Snack: Item] = [
+    .gum: Item(price: 1, quantity: 5),
+    .cookie: Item(price: 2, quantity: 3)
+]
+
+let someItem = Item(price: 2, quantity: 3)
+
+findKey(for: someItem, in: inventory)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
