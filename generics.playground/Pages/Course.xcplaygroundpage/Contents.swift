@@ -81,6 +81,34 @@ let someItem = Item(price: 2, quantity: 3)
 findKey(for: someItem, in: inventory)
 
 
+// Class Based Type Contraints
+
+class Shape {}
+
+func center<T: Shape>(of shape: T) -> Void {
+    print("Method Called")
+}
+
+
+// This should work
+let testShape: Shape = Shape()
+center(of: testShape)
+
+
+// This should work
+class Square: Shape {}
+let testSquare = Square()
+center(of: testSquare)
+
+// This should NOT work
+class View {}
+let testView = View()
+// center(of: testView)
+
+
+
+
+
 
 
 
