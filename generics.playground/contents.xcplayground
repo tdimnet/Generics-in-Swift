@@ -3,5 +3,6 @@
     <pages>
         <page name='Challenges'/>
         <page name='Course'/>
+        <page name='Types'/>
     </pages>
 </playground>
