@@ -55,10 +55,42 @@ func largest<T: Comparable>(in array: [T]) -> T? {
 }
 
 
+/*
+ * 4.
+ * Over several tasks we're going to create a simple data structure called a Queue. Where a Stack follows a Last In First Out policy, a Queue is a First In First Out data structure.
+ *
+ * Let's start by declaring a struct Queue, with a generic type parameter Element. To this type add a variable stored property, array, that holds Element, and initialize it to an empty array. This will serve as the underlying data store.
+ */
 
+struct Queue<Element> {
+    var array: [Element] = []
+    
+    var isEmpty: Bool {
+        if array.count == 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    var count: Int {
+        return array.count
+    }
+    
+    mutating func enqueue(_ element: Element) {
+        array.append(element)
+    }
+    
+    mutating func dequeue() -> Element? {
+        if array.isEmpty {
+            return nil
+        }
+        return array.removeFirst()
+    }
+}
 
-
-
+let queue = Queue(array: [])
+queue.isEmpty
 
 
 
