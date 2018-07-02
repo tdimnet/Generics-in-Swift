@@ -45,15 +45,44 @@ struct Animator<T> where T: Hashable, T: Shape {
 
 
 
+// Constraining Associated Types
 
+protocol AnimalFood {}
 
+protocol Animal {
+    associatedtype Food: AnimalFood
+    func eat(_ food: Food)
+}
 
+struct Kibble: AnimalFood {}
 
+class Cat: Animal {
+    func eat(_ food: Kibble) {
+        // code
+    }
+}
 
+struct DogFood: AnimalFood {}
 
+class Dog: Animal {
+    func eat(_ food: DogFood) {
+        // code
+    }
+}
 
+let cat = Cat()
+let dog = Dog()
 
+func feed<T: Animal>(_ animal: T) {}
 
+class Wolf<FoodType: AnimalFood>: Animal {
+    func eat(_ food: FoodType) {
+        //
+    }
+}
+
+let wolf = Wolf<Kibble>()
+let anotherWolf = Wolf<DogFood>()
 
 
 
