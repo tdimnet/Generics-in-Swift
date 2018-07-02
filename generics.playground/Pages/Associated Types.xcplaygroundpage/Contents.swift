@@ -25,3 +25,50 @@ struct IntStack: Stack {
         return array.last
     }
 }
+
+
+protocol ShoppingItem {
+    var price: Double { get }
+}
+
+typealias HashableShoppingItem = Hashable & ShoppingItem
+
+struct Checkout<Item: HashableShoppingItem> {
+    var cart = [Item: Int]()
+}
+
+class Shape {}
+
+struct Animator<T> where T: Hashable, T: Shape {
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
