@@ -95,7 +95,7 @@ queue.isEmpty
 
 
 /*
- * 4.
+ * 5.
  * Let's get some practice in creating a protocol with an associated type so we're familiar with the syntax.
  * Declare a protocol named ConfigurableRow with an associated type object.
  * Add a single requirement to the protocol - a function named configure with a single argument of type Object. Give the function an external name of with and local name of object.
@@ -108,9 +108,39 @@ protocol ConfigurableRow {
 }
 
 
+/*
+ * 6.
+ * In the editor I've defined a protocol, PrefixContaining, that specifies that conforming types can determine whether a value contains a prefix. I've also gone ahead and added conformance to the String type.
+ * Your task is to extend the Array type and add a function that lets you filter by prefix but only in cases where the array contains types that conform to PrefixContaining. The function signature should be as follows: func filter(byPrefix prefix: String) -> [Element]
+ * For example, your code should return the following results
+ * let test = ["aa", "ba", "ca", "ab"]
+ * let result = test.filter(byPrefix: "a") // result = ["aa", "ab"]
+ */
 
+protocol PrefixContaining {
+    func hasPrefix(_ prefix: String) -> Bool
+}
 
+extension String: PrefixContaining {}
 
+// Enter code below
+
+extension Array where Element: PrefixContaining {
+    func filter(byPrefix prefix: String) -> [Element] {
+        var foundValue: [Element] = []
+        
+        for elements in self {
+            if let elementsAsString = elements as? String {
+                if elementsAsString.hasPrefix(prefix) {
+                    foundValue.append(elements)
+                }
+            }
+        }
+        
+        return foundValue
+        
+    }
+}
 
 
 

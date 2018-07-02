@@ -52,11 +52,32 @@ struct StringView: ConfigurableView {
 let controller = ViewController(view: StringView(), data: StringDataProvider())
 
 
+import Foundation
 
+struct Weather {
+    let temperature: Double
+    let humidity: Double
+    let chanceOfRain: Double
+    let icon: String
+    let highTemperature: Double
+    let lowTemperature: Double
+    let sunrise: Date
+    let sunset: Date
+}
 
+let current = Weather(temperature: 63, humidity: 0.36, chanceOfRain: 0.04, icon: "Cloudy", highTemperature: 67, lowTemperature: 50, sunrise: Date(), sunset: Date())
 
+protocol PrettyPrintable {
+    var prettyDescription: String { get }
+}
 
+extension Weather: PrettyPrintable {
+    var prettyDescription: String {
+        return "Temperature: \(temperature)\nHumidity: \(humidity)\nChance Of Rain: \(chanceOfRain)"
+    }
+}
 
+print(current.prettyDescription)
 
 
 
