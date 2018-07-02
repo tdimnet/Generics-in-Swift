@@ -5,5 +5,6 @@
         <page name='Course'/>
         <page name='Types'/>
         <page name='Associated Types'/>
+        <page name='Associated Types Part 2'/>
     </pages>
 </playground>
