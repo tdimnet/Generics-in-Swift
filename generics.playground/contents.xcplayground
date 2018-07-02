@@ -4,5 +4,6 @@
         <page name='Challenges'/>
         <page name='Course'/>
         <page name='Types'/>
+        <page name='Associated Types'/>
     </pages>
 </playground>

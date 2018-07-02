@@ -94,6 +94,47 @@ queue.isEmpty
 
 
 
+/*
+ * 4.
+ * Let's get some practice in creating a protocol with an associated type so we're familiar with the syntax.
+ * Declare a protocol named ConfigurableRow with an associated type object.
+ * Add a single requirement to the protocol - a function named configure with a single argument of type Object. Give the function an external name of with and local name of object.
+ */
+
+protocol ConfigurableRow {
+    associatedtype Object
+    
+    func configure(with object: Object)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
